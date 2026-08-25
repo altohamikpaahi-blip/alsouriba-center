@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>تسجيل الدخول - مركز السوريبة</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+  <style>
+    .login-container {
+      max-width: 400px;
+      margin: 4rem auto;
+      background: var(--white);
+      padding: 2rem;
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+    }
+    .form-group {
+      margin-bottom: 1.2rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 5px;
+      font-weight: 600;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 10px;
+      border: 1px solid var(--gray-border);
+      border-radius: var(--radius);
+    }
+    .demo-box {
+      background: #f1f5f9;
+      padding: 10px;
+      border-radius: var(--radius);
+      font-size: 0.85rem;
+      margin-top: 1.5rem;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="nav-container">
+      <div class="logo-area">
+        <h1><a href="index.html" style="text-decoration:none; color:inherit;">مركز السوريبة</a></h1>
+      </div>
+      <a href="index.html" class="btn-secondary" style="color: var(--secondary); border-color: var(--secondary);">الرئيسية</a>
+    </div>
+  </header>
+
+  <div class="login-container">
+    <h2 style="text-align: center; margin-bottom: 1.5rem; color: var(--secondary);">تسجيل الدخول</h2>
+    <div id="error-msg" style="color: red; margin-bottom: 1rem; text-align: center; display: none;"></div>
+    
+    <form id="login-form">
+      <div class="form-group">
+        <label>اسم المستخدم</label>
+        <input type="text" id="username" required placeholder="أدخل اسم المستخدم">
+      </div>
+      <div class="form-group">
+        <label>كلمة المرور</label>
+        <input type="password" id="password" required placeholder="أدخل كلمة المرور">
+      </div>
+      <button type="submit" class="btn-primary" style="width: 100%;">دخول</button>
+    </form>
+
+    <div class="demo-box">
+      <strong>حسابات تجريبية للاختبار:</strong><br>
+      - مدير النظام: <code>admin</code> / <code>admin123</code><br>
+      - مدير التدريب: <code>training</code> / <code>training123</code><br>
+      - مسؤول إداري: <code>admin_staff</code> / <code>adminstaff123</code><br>
+      - مسؤول مالي: <code>finance</code> / <code>finance123</code><br>
+      - تسويق: <code>marketing</code> / <code>marketing123</code><br>
+      - دعم فني: <code>technical</code> / <code>technical123</code><br>
+      - طالب: <code>student</code> / <code>student123</code>
+    </div>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script>
+    document.getElementById("login-form").addEventListener("submit", (e) => {
+      e.preventDefault();
+      const u = document.getElementById("username").value;
+      const p = document.getElementById("password").value;
+      
+      const res = loginUser(u, p);
+      if (res.success) {
+        window.location.href = "dashboard.html";
+      } else {
+        const err = document.getElementById("error-msg");
+        err.innerText = res.message;
+        err.style.display = "block";
+      }
+    });
+  </script>
+</body>
+</html>
