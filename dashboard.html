@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>لوحة التحكم - مركز السوريبة</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div class="dashboard-layout">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <div>
+        <div class="sidebar-header">
+          <h3>مركز السوريبة</h3>
+        </div>
+        <ul class="sidebar-menu">
+          <li><a href="#" class="active">لوحة القيادة</a></li>
+          <li><a href="pages/courses.html">الدورات التدريبية</a></li>
+          <li><a href="pages/announcements.html">الإعلانات</a></li>
+        </ul>
+      </div>
+      <div style="padding: 1.5rem;">
+        <button onclick="logoutUser()" class="btn-primary" style="width: 100%; background: #ef4444; border:none; cursor:pointer;">تسجيل الخروج</button>
+      </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="main-content">
+      <div class="top-bar">
+        <h3 id="user-name-display">لوحة التحكم</h3>
+        <a href="index.html" class="btn-secondary" style="color: var(--secondary); border-color: var(--secondary); padding: 0.3rem 0.8rem; font-size: 0.9rem;">عرض الموقع</a>
+      </div>
+
+      <div class="dashboard-content" id="dynamic-dashboard-content">
+        <!-- المحتوى الديناميكي حسب الدور -->
+      </div>
+    </main>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/dashboard.js"></script>
+</body>
+</html>
