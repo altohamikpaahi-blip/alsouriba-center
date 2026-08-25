@@ -1,0 +1,18 @@
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .dashboard-layout {
+    flex-direction: column;
+  }
+  .sidebar {
+    width: 100%;
+    height: auto;
+  }
+  .hero h2 {
+    font-size: 1.6rem;
+  }
+  .hero-buttons {
+    flex-direction: column;
+  }
+}
